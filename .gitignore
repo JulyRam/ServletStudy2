@@ -24,4 +24,4 @@ hs_err_pid*
 
 #my
 DBConnect.java
-com/epic/s1/test*
+scr/com/epic/s1/test*
