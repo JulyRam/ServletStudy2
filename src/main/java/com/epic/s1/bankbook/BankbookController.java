@@ -18,7 +18,7 @@ public class BankbookController {
 	public void start (HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("Bankbook Controller ½ÇÇà");
 		
-		String uri = request.getRequestURI();
+		String uri = request.getRequestURI("../WEB-INF/views/bankbook/bankbookSelect.jsp");
 		int index = uri.lastIndexOf("/");
 		
 		String path = uri.substring(index+1);
