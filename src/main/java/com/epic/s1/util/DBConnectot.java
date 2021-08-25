@@ -24,6 +24,16 @@ public class DBConnectot {
 		return con;
 	}
 	
+	public void disConnect(PreparedStatement st, Connection con) {
+		try {
+			st.close();
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	
 	public void disConnect(ResultSet rs, PreparedStatement ps, Connection con) {
 		try {
 			rs.close();
