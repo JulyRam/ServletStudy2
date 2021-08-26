@@ -7,22 +7,23 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.epic.s1.util.DBConnectot;
+import com.epic.s1.util.DBConnector;
+
 import com.sun.net.httpserver.Authenticator.Result;
 
 public class BankbookDAO {
 
-	private DBConnectot dbConnectot;
+	private DBConnector dbConnector;
 	
 	public BankbookDTO getSelect(BankbookDTO bankbookDTO) {
 		
-		dbConnectot = new DBConnectot();
+		dbConnector = new DBConnector();
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		BankbookDTO result = null;
 		
-		con = dbConnectot.getConnect();
+		con = dbConnector.getConnect();
 		String sql = "SELECT * FROM BANKBOOK WHERE BANKNUMBER = ?";
 		
 		try {
@@ -41,7 +42,7 @@ public class BankbookDAO {
 			e.printStackTrace();
 		}
 		finally {
-			dbConnectot.disConnect(rs, ps, con);
+			dbConnector.disConnect(rs, ps, con);
 		}
 		
 		return result;
@@ -49,13 +50,13 @@ public class BankbookDAO {
 	
 	public ArrayList<BankbookDTO> getList() {
 		
-		dbConnectot = new DBConnectot();
+		dbConnector = new DBConnector();
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		ArrayList<BankbookDTO> ar = new ArrayList<BankbookDTO>();
 		
-		con = dbConnectot.getConnect();
+		con = dbConnector.getConnect();
 		String sql = "SELECT bankbookList FROM BANKBOOK";
 		try {
 			ps = con.prepareStatement(sql);
@@ -72,7 +73,7 @@ public class BankbookDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
-			dbConnectot.disConnect(rs, ps, con);
+			dbConnector.disConnect(rs, ps, con);
 		}
 	return ar;	
 	}
@@ -80,7 +81,7 @@ public class BankbookDAO {
 	public int setInsert(BankbookDTO bankbookDTO) {
 		
 
-		Connection con = dbConnectot.getConnect();
+		Connection con = dbConnector.getConnect();
 		PreparedStatement ps = null;
 		int rs = 0;
 		
@@ -100,6 +101,6 @@ public class BankbookDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return resul;
+		return rs;
 	}
 }

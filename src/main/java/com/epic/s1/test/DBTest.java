@@ -4,7 +4,7 @@ import java.sql.Connection;
 
 import com.epic.s1.bankbook.BankbookDAO;
 import com.epic.s1.bankbook.BankbookDTO;
-import com.epic.s1.util.DBConnectot;
+import com.epic.s1.util.DBConnector;
 
 public class DBTest {
 
