@@ -12,6 +12,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here By JSTL</title>
+<link href="../css/list.css" type="stylesheet">
 </head>
 <body>
 
